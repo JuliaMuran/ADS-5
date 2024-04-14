@@ -1,6 +1,8 @@
 // Copyright 2021 NNTU-CS
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
+#pragma once
+#include <iostream>
 
 template<typename T, int size>
 struct TStack {
