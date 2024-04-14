@@ -50,10 +50,10 @@ std::string infx2pstfx(std::string inf) {
                 }
                 stack1.push(op);
             }
-	}
+        }
         while (!stack1.isEmpty()) {
             res += stack1.pop();
-	}
+        }
         return res;
 }
 int eval(string post) {
