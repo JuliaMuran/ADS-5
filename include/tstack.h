@@ -9,6 +9,7 @@ struct TStack {
     private:
     T* arr = NULL;
     int current;
+
     public:
         void push(T info) {
             if (size == current) {
