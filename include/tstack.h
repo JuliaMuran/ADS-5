@@ -13,37 +13,32 @@ struct TStack {
         void push(T info) {
             if (size == current) {
                 std::cout << "Переполнение стека" << std::endl;
-            }
-            else if (arr == NULL) {
+            } else if (arr == NULL) {
                 arr = new T[size];
                 current = 0;
                 arr[current++] = info;
-            }
-            else {
+            } else {
                 arr[current++] = info;
             }
         }
         bool isEmpty() {
             if (current == 0) {
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         }
         T top() {
             if (isEmpty()) {
                 return 0;
-            }
-            else {
+            } else {
                 return arr[current - 1];
             }
         }
         T pop() {
             if (isEmpty()) {
                 return 0;
-            }
-            else {
+            } else {
                 return arr[--current];
             }
         }
