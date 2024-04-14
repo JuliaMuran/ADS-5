@@ -73,25 +73,24 @@ int eval(string post) {
 		}
 		else if (post[i] == '+' || post[i] == '-' || post[i] == '*' || post[i] == '/') {
 			switch (post[i]) {
-			case '*': {
-				stack2.push(stack2.pop() * stack2.pop());
-				break;
-			}
-			case '/': {
-				stack2.push(stack2.pop() / stack2.pop());
-				break;
-			}
-			case '+': {
-				stack2.push(stack2.pop() + stack2.pop());
-				break;
-			}
-			case '-': {
-				int left = stack2.pop();
-				int right = stack2.pop();
-
-				stack2.push(right - left);
-				break;
-			}
+			    case '*': {
+				    stack2.push(stack2.pop() * stack2.pop());
+				    break;
+			    }
+			    case '/': {
+				    stack2.push(stack2.pop() / stack2.pop());
+				    break;
+			    }
+			    case '+': {
+				    stack2.push(stack2.pop() + stack2.pop());
+				    break;
+			    }
+			    case '-': {
+				    int left = stack2.pop();
+				    int right = stack2.pop();
+				    stack2.push(right - left);
+				    break;
+			    }
 			}
 		}
 	}
