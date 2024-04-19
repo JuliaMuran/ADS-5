@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include "tstack.h"
+
 TStack<char, 100> stack1;
 TStack<int, 100> stack2;
 
@@ -57,16 +58,16 @@ std::string infx2pstfx(std::string inf) {
 int eval(std::string pref) {
   std::string number = "";
     for (int i = 0; i < post.length(); i++) {
-        if (post[i] >= '0' && post[i] <= '9') {
-            number += post[i];
-        } else if (post[i] == ' ') {
+        if (pref[i] >= '0' && pref[i] <= '9') {
+            number += pref[i];
+        } else if (pref[i] == ' ') {
             if (number != "") {
                 stack2.push(std::stoi(number));
                 number = "";
             }
-        } else if (post[i] == '+' || post[i] == '-'
-            || post[i] == '*' || post[i] == '/') {
-            switch (post[i]) {
+        } else if (pref[i] == '+' || pref[i] == '-'
+            || pref[i] == '*' || pref[i] == '/') {
+            switch (pref[i]) {
                 case '*': {
                     stack2.push(stack2.pop() * stack2.pop());
                     break;
