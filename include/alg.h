@@ -6,7 +6,54 @@
 #include <string>
 using namespace std;
 
-std::string infx2pstfx(std::string inf);
+std::string infx2pstfx(std::string inf) {
+    std::string res = "";
+        for (int i = 0; i < inf.length(); i++) {
+            if (inf[i] == '(') {
+                stack1.push(inf[i]);
+            } else if (inf[i] == ')') {
+                while (!stack1.isEmpty() && stack1.top() != '(') {
+                    res += stack1.pop();
+                }
+                res += " ";
+                stack1.pop();
+            } else if (inf[i] >= '0' && inf[i] <= '9') {
+                while (i < inf.length() && (inf[i] >= '0' && inf[i] <= '9')) {
+                    res += inf[i];
+                    i++;
+                }
+                res += " ";
+                i--;
+            } else if (strchr("(+-*/^", inf[i])) {
+                char op = inf[i];
+                while (!stack1.isEmpty()) {
+                    int priorS = 0;
+                    switch (stack1.top()) {
+                        case '+': priorS = 1;
+                        case '-': priorS = 1;
+                        case '*': priorS = 2;
+                        case '/': priorS = 2;
+                    }
+                    int priorOp = 0;
+                    switch (op) {
+                        case '+': priorOp = 1;
+                        case '-': priorOp = 1;
+                        case '*': priorOp = 2;
+                        case '/': priorOp = 2;
+                    }
+                    if (!(priorS >= priorOp)) {
+                        break;
+                    }
+                    res = res + stack1.pop() + " ";
+                }
+                stack1.push(op);
+            }
+        }
+        while (!stack1.isEmpty()) {
+            res += stack1.pop();
+        }
+        return res;
+}
 
 int eval(string post) {
     std::string number = "";
