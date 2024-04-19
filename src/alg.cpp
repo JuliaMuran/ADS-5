@@ -50,7 +50,6 @@ std::string infx2pstfx(std::string inf) {
             res += stack1.pop();
         }
         return res;
-
 }
 
 int eval(std::string pref) {
