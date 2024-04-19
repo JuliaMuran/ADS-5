@@ -6,11 +6,11 @@
 
 template<typename T, int size>
 class TStack {
-private:
+ private:
     T* arr = NULL;
     int current;
 
-public:
+ public:
     void push(T info) {
         if (size == current) {
             std::cout << "Переполнение стека" << std::endl;
