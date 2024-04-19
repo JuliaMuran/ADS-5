@@ -63,7 +63,7 @@ int eval(std::string pref) {
                 stack2.push(std::stoi(number));
                 number = "";
             }
-        } else if (post[i] == '+' || post[i] == '-' 
+        } else if (post[i] == '+' || post[i] == '-'
             || post[i] == '*' || post[i] == '/') {
             switch (post[i]) {
                 case '*': {
