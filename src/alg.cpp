@@ -2,6 +2,8 @@
 #include <string>
 #include <map>
 #include "tstack.h"
+TStack<char, 100> stack1;
+TStack<int, 100> stack2;
 
 std::string infx2pstfx(std::string inf) {
   std::string res = "";
