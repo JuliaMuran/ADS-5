@@ -34,7 +34,7 @@ std::string infx2pstfx(std::string inf) {
             i--;
         } else if (strchr("+-*/^", inf[i])) {
             char op = inf[i];
-            while (!stack1.isEmpty() && 
+            while (!stack1.isEmpty() &&
                 getPriority(stack1.top()) >= getPriority(op)) {
                 res += stack1.pop();
                 res += " ";
