@@ -25,16 +25,14 @@ std::string infx2pstfx(std::string inf) {
                 res += " ";
             }
             stack1.pop();
-        }
-        else if (inf[i] >= '0' && inf[i] <= '9') {
+        } else if (inf[i] >= '0' && inf[i] <= '9') {
             while (i < inf.length() && (inf[i] >= '0' && inf[i] <= '9')) {
                 res += inf[i];
                 i++;
             }
             res += " ";
             i--;
-        }
-        else if (strchr("+-*/^", inf[i])) {
+        } else if (strchr("+-*/^", inf[i])) {
             char op = inf[i];
             while (!stack1.isEmpty() && getPriority(stack1.top()) >= getPriority(op)) {
                 res += stack1.pop();
@@ -55,14 +53,12 @@ int eval(std::string pref) {
     for (int i = 0; i < pref.length(); i++) {
         if (pref[i] >= '0' && pref[i] <= '9') {
             number += pref[i];
-        }
-        else if (pref[i] == ' ') {
+        } else if (pref[i] == ' ') {
             if (number != "") {
                 stack2.push(std::stoi(number));
                 number = "";
             }
-        }
-        else if (pref[i] == '+' || pref[i] == '-'
+        } else if (pref[i] == '+' || pref[i] == '-'
             || pref[i] == '*' || pref[i] == '/') {
             int right = stack2.pop();
             int left = stack2.pop();
